@@ -5,16 +5,27 @@ using UnityEngine.Tilemaps;
 
 public class ResourceScript : MonoBehaviour
 {
-    public TileBase wood;
-    public TileBase stone;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public TileBase resourceType;
+    public PlayerInventory playerInventory;
+    private GameObject player;
+
+    private void Awake()
     {
-        if (collision.gameObject.Equals(wood))
+        player = GameObject.FindWithTag("Player");
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.Equals(player))
         {
-            Debug.Log("wood");
-        } else if (collision.gameObject.Equals(stone))
+            Tilemap map = this.gameObject.GetComponent<Tilemap>();
+            Vector3Int tileOfPlayer = map.WorldToCell(player.transform.position);
+            if (map.GetTile(tileOfPlayer) != null) {
+                playerInventory.AddResource(resourceType);
+                map.SetTile(tileOfPlayer, null);
+            }
+        } else
         {
-            Debug.Log("stone");
+            Debug.Log("unknown collision");
         }
     }
 }
