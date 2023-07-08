@@ -12,14 +12,12 @@ public class PlayerInventory : ScriptableObject
         { "wood", 0}, {"stone", 0}
     };
 
-    //public Dictionary<string, TextMeshPro> textMap;
-
     public int getResourceQuantity(string resource)
     {
         if (inventory.ContainsKey(getResourceName(resource))) {
             return inventory[getResourceName(resource)];
         } else {
-            Debug.Log("invalid resource key");
+            Debug.Log("invalid resource key: " + resource);
             return -1;
         }
     }
@@ -32,7 +30,7 @@ public class PlayerInventory : ScriptableObject
             inventory[getResourceName(resource)]++;
         } else
         {
-            Debug.Log("invalid resource key");
+            Debug.Log("invalid resource key: " + resource);
         }
     }
     public void RemoveResource(string resource)
@@ -43,7 +41,7 @@ public class PlayerInventory : ScriptableObject
         }
         else
         {
-            Debug.Log("invalid resource key");
+            Debug.Log("invalid resource key: " + resource);
         }
     }
 
@@ -62,7 +60,7 @@ public class PlayerInventory : ScriptableObject
     }
     private string getResourceName(TileBase resource)
     {
-        return resource.name.ToLower();
+        return resource.name.Substring(0, resource.name.Length - 4).ToLower();
     }
 
     private string getResourceName(string resource)

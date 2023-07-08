@@ -206,7 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97311952668fad84a81b1dbcdf25266c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resources: []
+  resourceList: {fileID: 11400000, guid: be028884345b9b74fb8048b8d4d23fda, type: 2}
+  ground: {fileID: 587197114}
+  x: 0
 --- !u!4 &214559621
 Transform:
   m_ObjectHideFlags: 0
@@ -555,7 +557,7 @@ GameObject:
   - component: {fileID: 525693493}
   m_Layer: 0
   m_Name: Stone
-  m_TagString: Untagged
+  m_TagString: ResourceMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4665,7 +4667,7 @@ GameObject:
   - component: {fileID: 1695160631}
   m_Layer: 0
   m_Name: Wood
-  m_TagString: Untagged
+  m_TagString: ResourceMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
